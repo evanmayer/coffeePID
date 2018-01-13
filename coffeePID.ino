@@ -1,6 +1,9 @@
 // using Brett Beauregard's excellent PID library 
 // with example code from 
 // https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample
+// And structure from Adafruit's
+// https://learn.adafruit.com/sous-vide-powered-by-arduino-the-sous-viduino/the-whole-enchilada
+
 // thermocouple reading libs
 #include <SPI.h>
 #include "Adafruit_MAX31855.h"

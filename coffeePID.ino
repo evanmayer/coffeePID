@@ -1,9 +1,6 @@
 // using Brett Beauregard's excellent PID library 
 // with example code from 
 // https://playground.arduino.cc/Code/PIDLibraryRelayOutputExample
-// And structure from Adafruit's
-// https://learn.adafruit.com/sous-vide-powered-by-arduino-the-sous-viduino/the-whole-enchilada
-
 // thermocouple reading libs
 #include <SPI.h>
 #include "Adafruit_MAX31855.h"
@@ -23,9 +20,14 @@ double output;
 volatile long onTime = 0;
 
 // kettle tuning params
+//double kP = 78.;
+//double kI = 0.92;
+//double kD = 16.;
+
+// gaggia tuning params
 double kP = 78.;
-double kI = .5;
-double kD = 15.;
+double kI = 1.4;
+double kD = 19.;
 
 // Initialize a PID, with initial tuning params k_p, k_i, k_d
 PID coffeePID(&input, &output, &setPoint, kP, kI, kD, DIRECT);
@@ -52,7 +54,7 @@ void setup() {
   // ############################ //
   // setpoint                     //
   // ############################ //
-  setPoint = 200.; 
+  setPoint = 225.; 
   // outside of kettle seems to measure about 15.5 deg F lower than thermometer
   
   windowStartTime = millis();

@@ -36,7 +36,7 @@ PID coffeePID(&input, &output, &setPoint, kP, kI, kD, DIRECT);
 int windowSize = 2500; // ms
 unsigned long windowStartTime;
 
-// initialize the Thermocouple
+// initialize the thermocouple
 Adafruit_MAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
 
 void setup() {
@@ -55,8 +55,7 @@ void setup() {
   // setpoint                     //
   // ############################ //
   setPoint = 225.; 
-  // outside of kettle seems to measure about 15.5 deg F lower than thermometer
-  
+    
   windowStartTime = millis();
   coffeePID.SetTunings(kP, kI, kD);
   //coffeePID.SetSampleTime(1000);
